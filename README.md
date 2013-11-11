@@ -1,7 +1,7 @@
 NeuroScouting-Tree
 ==================
 
-#Interview Tree
+##Interview Tree
 Build a tree of integers which has the following properties:
 - The root node has value 1.
 - Each node in the tree has two children.

@@ -48,7 +48,7 @@ def getTreeWidth(lines):
 	return sum([len(val) + 4 for val in lines[-1]])
 
 if __name__ == "__main__":
-	maxDepth = int(raw_input("How deep?"))
+	maxDepth = int(raw_input("How deep should I go?"))
 	lines = []
 	lines.append([1])
 	lines.append([1,1])

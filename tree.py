@@ -136,17 +136,18 @@ def nextNode(parent, leftOrRight):
 
 
 if __name__ == "__main__":
-	#startingValue = raw_input("Input a numerical value for the root node:")
-	#print "Entered:", startingValue
+	# startingValue = raw_input("Input a numerical value for the root node:")
+	# print "Entered:", startingValue
 
-	#treeDepth = raw_input("How deep should I go?: ")
-	#print "Outputting", treeDepth, "levels"
+	treeDepth = raw_input("How deep should I go?: ")
+	print "Outputting", treeDepth, "levels"
 
 	#Create the Tree
-	tree = BinaryTree()#startingValue = startingValue, maxDepth = treeDepth)
+	tree = BinaryTree(maxDepth = treeDepth)
 	tree.build(nextNode)
 	
 	treePrinter = BinaryTreePrinter(tree)
-	treePrinter.printOut("./printedTree")
+	treePrinter.printOut("./printedTree.txt")
+	print "Outputted printed tree to printedTree.txt."
 
 

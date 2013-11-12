@@ -83,7 +83,8 @@ class BinaryTree:
 		return nodes
 
 
-
+#Defining the builder function for this tree (or the tree's rules, so to speak)
+#Here is where the values of nodes are determined based on whether the node is a left or right node.
 def nextNode(parent, leftOrRight):
 	value = parent.value
 	if not parent.isRoot():

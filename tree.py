@@ -18,7 +18,7 @@ Attributes:
 	Value (Node value)
 	leftOrRight ("right" or "left" whether node is a right child or left child, "none" for root)
 
-Methods:
+Public Methods:
 	isRoot() returns True (if node is root) else False
 	isLeft() returns True (if node is left child) else False
 	isRight() returns True (if node is right child) else False
@@ -50,7 +50,6 @@ Attributes:
 
 Methods:
 	build - returns none -> builds the tree based on an input builder function
-	getNodes - returns dictionary of all nodes in the tree in order from left to right based on depth 
 """
 class BinaryTree:
 	def __init__(self, startingValue = 1, maxDepth = 5):
@@ -63,10 +62,6 @@ class BinaryTree:
 	def build(self, builder):
 		self.root = self.privateBuild(self.root, builder, 0)
 
-	#gets all nodes in the tree
-	def getNodes(self):
-		return self.privateGetNodes(self.root, dict(), 0)
-		
 	#private methods called only by the class itself
 	def privateBuild(self, node, builder, depth):
 		node.left = builder(node,"left") #grab values for nodes
@@ -76,6 +71,33 @@ class BinaryTree:
 			node.right = self.privateBuild(node.right, builder, depth + 1)
 		return node
 
+
+#BinaryTreePrinter Class
+"""
+Attributes:
+	binaryTree (binaryTree)
+	maxDepth (maximum depth of tree)
+	
+Public Methods:
+	printOut - takes in filepath returns none - outputs the tree printed in the file specified at the filepath
+"""
+class BinaryTreePrinter:
+	def __init__(self, binaryTree = BinaryTree()):
+		self.binaryTree = binaryTree
+		self.maxDepth = binaryTree.maxDepth
+
+	#writes the tree to file
+	def printOut(self,filepath):
+		nodes = self.getNodes()
+
+	#get character width of printed tree
+	def getTreeWidth(self, nodeDict):
+		return sum([len(str(node.value)) for node in nodeDict[self.maxDepth]])
+
+	#gets all nodes in the tree
+	def getNodes(self):
+		return self.privateGetNodes(self.root, dict(), 0)
+	
 	def privateGetNodes(self,node,nodes,depth):
 		nodes[depth] = nodes.get(depth,[]) + [node]
 		nodes = self.privateGetNodes(node.left, nodes, depth + 1) if node.left else nodes
@@ -83,9 +105,13 @@ class BinaryTree:
 		return nodes
 
 
-#Defining the builder function for this tree (or the tree's rules, so to speak)
-#Here is where the values of nodes are determined based on whether the node is a left or right node.
-#Returns node given the parent node and whether it's a left or right node
+#Builder Function
+"""
+Required by the BinaryTree class
+Defining the builder function for this tree (or the tree's rules, so to speak)
+Here is where the values of nodes are determined based on whether the node is a left or right node.
+Returns node given the parent node and whether it's a left or right node
+"""
 def nextNode(parent, leftOrRight):
 	value = parent.value
 	if not parent.isRoot():
@@ -106,4 +132,8 @@ if __name__ == "__main__":
 	#Create the Tree
 	tree = BinaryTree()#startingValue = startingValue, maxDepth = treeDepth)
 	tree.build(nextNode)
-	nodes = tree.getNodes()
+	
+	treePrinter = BinaryTreePrinter(tree)
+	treePrinter.printOut("./printedTree")
+
+

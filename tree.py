@@ -1,7 +1,7 @@
 """
 NeuroScouting Interview Tree
 
-Usage: python tree.py [starting value]
+Usage: python tree.py
 
 Description can be found in readme associated.
 Interpretation 1 - node's sibling means a node that shares the same immediate parent

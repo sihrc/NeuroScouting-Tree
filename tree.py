@@ -69,14 +69,11 @@ class BinaryTree:
 		
 	#private methods called only by the class itself
 	def privateBuild(self, node, builder, depth):
+		node.left = builder(node,"left") #grab values for nodes
+		node.right = builder(node,"right")
 		if depth < self.maxDepth:
-			node.left = builder(node,"left")
-			node.right = builder(node,"right")
-			node.left = self.privateBuild(node.left, builder, depth + 1)
+			node.left = self.privateBuild(node.left, builder, depth + 1) #recurse
 			node.right = self.privateBuild(node.right, builder, depth + 1)
-		else:
-			node.left = builder(node,"left")
-			node.right = builder(node,"right")
 		return node
 
 	def privateGetNodes(self,node,nodes,depth):

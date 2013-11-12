@@ -139,7 +139,7 @@ if __name__ == "__main__":
 	# startingValue = raw_input("Input a numerical value for the root node:")
 	# print "Entered:", startingValue
 
-	treeDepth = raw_input("How deep should I go?: ")
+	treeDepth = int(raw_input("How deep should I go?: "))
 	print "Outputting", treeDepth, "levels"
 
 	#Create the Tree

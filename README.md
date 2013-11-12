@@ -12,8 +12,9 @@ The program should be able to accept an input value to determine how many levels
  
 ##High-Level
 (For more specific documentation, see the comments in code.)
+Both scripts require inputs of integers when prompted. 
 
-tree.py
+tree.py 
 
 	This script contains 3 classes: Node, BinaryTree, and BinaryTreePrinter.
 	Node defines the the class for each node in the tree. 

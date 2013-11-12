@@ -12,7 +12,9 @@ The program should be able to accept an input value to determine how many levels
  
 ##High-Level
 (For more specific documentation, see the comments in code.)
+
 tree.py
+
 	This script contains 3 classes: Node, BinaryTree, and BinaryTreePrinter.
 	Node defines the the class for each node in the tree. 
 	BinaryTree defines the class that builds trees from a root node given a builder function. 
@@ -21,9 +23,9 @@ tree.py
 	BinaryTreePrinter prints a BinaryTree. 
 
 tree2.py
+
 	This script uses a simple algorithm to calculate subsequent depths of values
 	in the required binary tree. The algorithm adds a "1" at the ends of a new line,
 	reads the previous line, adds the sum of every (i,i+1) element in the previous line
 	twice in the new line.
-
 	prints out the tree using a similar printer as tree.py

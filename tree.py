@@ -105,7 +105,7 @@ class BinaryTreePrinter:
 
 	#get character width of printed tree
 	def getTreeWidth(self, nodeDict):
-		return sum([len(str(value)) + 1 for value in nodeDict[self.binaryTree.maxDepth]])
+		return sum([len(str(value)) + 2 for value in nodeDict[self.binaryTree.maxDepth]])
 
 	#gets all nodes in the tree
 	def getNodes(self):

@@ -41,7 +41,6 @@ def getLine(line, maxWidth):
 		lineBuilder += (spacing - extra) * " " + value + (len(value) - 1 - extra) * " "
 	lineBuilder += "\n"
 	return lineBuilder
-def getLine(line, ):
 
 #get character width of printed tree
 def getTreeWidth(lines):
@@ -55,6 +54,7 @@ if __name__ == "__main__":
 	for i in range(1,maxDepth):
 		lines.append(getNextLine(lines[i]))
 	printOut("./printedTree2.txt",lines)
+	print "Outputted printed tree to printedTree2.txt. ", 
 
 
 
